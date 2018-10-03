@@ -1,8 +1,14 @@
 #intro {
-	display: table;
 	width: 100%;
-	height: 100vh;
+	min-height: 100vh;
 	background: black;
+	position: absolute;
+	top: 0;
+}
+
+.white {
+	background: white !important;
+	transition: all 1s;
 }
 
 #content {
@@ -10,12 +16,6 @@
 	vertical-align: middle;
 	text-align: center;
 	background: none;
-	-webkit-touch-callout: none !important; /* iOS Safari */
-	-webkit-user-select: none !important; /* Safari */
-	-khtml-user-select: none !important; /* Konqueror HTML */
-	-moz-user-select: none !important; /* Firefox */
-	-ms-user-select: none !important; /* Internet Explorer/Edge */
-	user-select: none !important;
 }
 
 .fadeIn {
@@ -39,4 +39,17 @@
 
 #intro div p span {
 	color: yellow;
+}
+
+.hidden {
+	display: none;
+}
+
+#content img {
+	vertical-align: middle;
+}
+
+#metric {
+	background: gray;
+	height: 200px;
 }
