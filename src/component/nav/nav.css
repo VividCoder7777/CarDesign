@@ -6,23 +6,21 @@
 	width: 1000px;
 	margin: 0 auto;
 	padding: 0;
-	border-left: 2px solid rgb(0, 0, 0);
-	border-right: 2px solid rgb(0, 0, 0);
 }
 
 #nav li {
 	padding: 30px;
 	font-weight: bold;
-	border-right: 2px solid rgb(0, 0, 0);
 }
 
 #nav li:hover {
-	background: rgb(80, 78, 78);
+	color: black;
+	background: white;
 }
 
 #navCon {
-	background: rgb(0, 0, 0);
-	color: rgb(1, 194, 253);
+	background: #000000;
+	color: rgb(255, 255, 255);
 	z-index: 9999;
 	position: relative;
 }

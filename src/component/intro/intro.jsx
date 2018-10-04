@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
 import './intro.css';
 import Car from '../../resource/image/car.png';
+import Tractor_Banner from '../../resource/image/engine.jpg';
+import Dessert_Grass from '../../resource/image/Desert_Grass.jpg';
+import Dessert_Catus from '../../resource/image/Desert_Cactus.jpg';
+import ElementUtility from '../utility/element';
 
 class Introduction extends Component {
 	constructor(props) {
@@ -17,7 +21,6 @@ class Introduction extends Component {
 
 	animateIntroduction(callback) {
 		let introduction = document.querySelectorAll('#content > p');
-		let content = document.getElementById('content');
 		let wait = 1000;
 
 		for (let paragraph of introduction) {
@@ -43,7 +46,6 @@ class Introduction extends Component {
 
 		wait += 1000;
 
-		//let nextPhrase = this.createParagraph('Introducing...');
 		let finalParagraph = document.getElementById('final');
 
 		setTimeout(() => {
@@ -51,7 +53,7 @@ class Introduction extends Component {
 				if (paragraph.id === 'final') continue;
 				paragraph.classList.add('hidden');
 			}
-			//content.appendChild(nextPhrase);
+
 			setTimeout(() => {
 				finalParagraph.classList.toggle('fadeIn');
 				setTimeout(() => {
@@ -59,8 +61,6 @@ class Introduction extends Component {
 					finalParagraph.classList.toggle('fadeIn');
 					setTimeout(() => {
 						// lift up the content
-						let intro = document.getElementById('intro');
-						intro.classList.toggle('white');
 						callback();
 					}, 1000);
 				}, 1000);
@@ -72,40 +72,70 @@ class Introduction extends Component {
 		this.setState({
 			isDoneIntro: true
 		});
+
+		this.setListeners();
+	};
+
+	setListeners = () => {
+		let p = document.getElementById('test');
+
+		window.addEventListener('scroll', () => {
+			ElementUtility.isScrolledIntoView(p);
+		});
 	};
 
 	showIntroduction() {
 		return (
 			<React.Fragment>
-				<p>Brillance</p>
-				<p>Elegenace</p>
-				<p>Performance</p>
-				<p>
+				<p className="startInv">Brillance</p>
+				<p className="startInv">Elegenace</p>
+				<p className="startInv">Performance</p>
+				<p className="startInv">
 					All In <span>One</span>
 				</p>
-				<p id="final">Introducing...</p>
+				<p id="final" className="startInv">
+					Introducing...
+				</p>
 			</React.Fragment>
 		);
 	}
 
 	showContent() {
+		// these should be placed into class
 		let intro = document.getElementById('intro');
-		intro.style.position = 'relative';
-		document.getElementById('content').style.display = 'block';
+		let content = document.getElementById('content');
+
+		intro.classList.toggle('black');
+		intro.classList.add('introDone');
+
+		content.style.display = 'block';
+		content.style.padding = 0;
+
 		return (
-			<React.Fragment>
-				<div>
-					<h3>PEUGEOT V5</h3>
+			<div className="elementFadeIn">
+				<div id="car">
+					<h2>PEUGEOT V5</h2>
 					<img src={Car} />
 				</div>
-				<div id="metric" />
-			</React.Fragment>
+
+				<div id="metric">
+					<img src={Dessert_Catus} />
+				</div>
+
+				<div id="engine">
+					<p> Hello </p>
+					<p> Hello </p>
+					<p> Hello </p>
+					<p id="test"> Hello </p>
+					<p> Hello </p>
+				</div>
+			</div>
 		);
 	}
 
 	render() {
 		return (
-			<div id="intro">
+			<div id="intro" className="black">
 				<div id="content">{this.state.isDoneIntro ? this.showContent() : this.showIntroduction()}</div>
 			</div>
 		);

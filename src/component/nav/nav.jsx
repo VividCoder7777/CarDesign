@@ -12,6 +12,8 @@ class Navigation extends Component {
 				<ul id="nav">
 					<li>About</li>
 					<li>Product</li>
+					<li>Contact</li>
+					<li>Location</li>
 				</ul>
 			</div>
 		);
