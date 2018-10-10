@@ -51,7 +51,7 @@
 	display: none;
 }
 
-#content img {
+#car img {
 	vertical-align: middle;
 	display: inline-block;
 	width: 60%;
@@ -59,15 +59,28 @@
 }
 
 #metric {
-	background: rgb(0, 0, 0, 0.8);
 	overflow: hidden;
+	position: relative;
+	background: rgb(255, 255, 255);
 }
 
-#metric img {
-	display: block;
-	width: 100%;
-	opacity: 0.8;
-	position: relative;
+#metric ul {
+	display: flex;
+	list-style: none;
+	text-align: center;
+}
+
+#metric ul li {
+	flex-grow: 1;
+	padding: 80px;
+	font-size: 1rem;
+	color: rgb(49, 49, 49);
+	font-family: Arial, Helvetica, sans-serif;
+	font-weight: bold;
+}
+
+.highlightRed {
+	color: red;
 }
 
 #content h2 {
@@ -92,10 +105,190 @@
 }
 
 #car {
-	background-image: url('../../resource/image/Desert_Mountain.jpg');
+	/* background-image: url('../../resource/image/Desert_Mountain.jpg'); */
+	background: rgb(240, 19, 129);
+	color: rgb(255, 255, 255);
+	font-size: 2rem;
+	font-family: Arial, Helvetica, sans-serif;
 }
 
 .introDone {
 	position: relative !important;
 	min-height: 0 !important;
+}
+
+.invisible {
+	visibility: hidden;
+}
+
+.visible {
+	visibility: visible;
+	animation: 4s fadeIn;
+}
+
+@keyframes popIn {
+	from {
+		position: absolute;
+		opacity: 0;
+		top: 20%;
+		right: 60%;
+	}
+	to {
+		position: absolute;
+		top: 40%;
+		right: 60%;
+		opacity: 1;
+	}
+}
+
+.popIn {
+	-webkit-animation: popIn 0.5s;
+	animation: popIn 0.5s;
+}
+
+#engine {
+	text-align: left;
+	font-size: 4rem;
+	background: no-repeat;
+	background-position-x: center;
+	position: relative;
+	color: rgb(255, 255, 255);
+	opacity: 0.9;
+	font-weight: bold;
+}
+
+#engine p {
+	margin: 0;
+}
+
+.topLeft {
+	position: absolute;
+	top: 40%;
+	left: 10%;
+}
+
+#engine img {
+	display: block;
+}
+
+#footer {
+	background: rgb(39, 38, 38);
+}
+
+#speed {
+	color: rgb(255, 255, 255);
+	opacity: 0.9;
+	font-size: 4rem;
+	font-weight: bold;
+	position: relative;
+	height: auto;
+}
+
+#speed p {
+	margin: 0;
+}
+
+.eg {
+	width: 562px;
+	text-align: left;
+}
+
+#speed > img {
+	display: block;
+}
+
+#information {
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+#information > ul {
+	list-style: none;
+	display: flex;
+	margin-bottom: 250px;
+}
+
+#information > ul > li {
+	flex-grow: 1;
+	margin-right: 1rem;
+	margin-left: 1rem;
+	padding-top: 250px;
+	padding-bottom: 250px;
+	color: rgb(255, 255, 255);
+	font-size: 2rem;
+	font-weight: bold;
+	background: black;
+}
+
+#information > ul > li:nth-child(1) {
+	background: url('../../resource/image/dealer.jpeg') no-repeat center;
+}
+
+#information > ul > li:nth-child(2) {
+	background: url('../../resource/image/pricing.jpeg') no-repeat center;
+}
+
+#information > ul > li:nth-child(3) {
+	background: url('../../resource/image/contact.jpeg') no-repeat center;
+}
+
+#information > h3 {
+	margin-top: 100px;
+	margin-bottom: 100px;
+	font-size: 2.5rem;
+}
+
+#information > ul > li:hover {
+	opacity: 0.8;
+}
+
+#information > ul > li > p {
+	background: rgb(216, 22, 80);
+	margin: 0;
+	display: inline-block;
+	width: 50%;
+}
+
+@keyframes relativePopIn {
+	from {
+		position: relative;
+		top: -100px;
+		opacity: 0;
+	}
+	to {
+		position: relative;
+		top: 0;
+		opacity: 1;
+	}
+}
+
+.relativePopIn {
+	animation: relativePopIn 0.5s;
+}
+
+#footer > div {
+	padding-top: 125px;
+	padding-bottom: 125px;
+}
+
+#footer > div > p {
+	font-family: Arial, Helvetica, sans-serif;
+	margin: 0;
+	color: white;
+	font-size: 1.5rem;
+	line-height: 1.6;
+}
+
+img {
+	max-width: 100%;
+	height: auto;
+	width: auto;
+}
+
+@media screen and (max-width: 952px) {
+	#speed {
+		font-size: 2.0rem;
+	}
+	#engine {
+		font-size: 2.0rem;
+	}
 }

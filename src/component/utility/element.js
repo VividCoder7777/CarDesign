@@ -1,5 +1,5 @@
 class ElementUtility {
-	isScrolledIntoView(elem) {
+	isScrolledIntoView(elem, { cssClass }) {
 		// var docViewTop = window.document.body.scrollTop;
 		// var docViewBottom = docViewTop + window.document.documentElement.offsetHeight;
 
@@ -8,11 +8,18 @@ class ElementUtility {
 
 		// return elemBottom <= docViewBottom && elemTop >= docViewTop;
 
+		if (!elem) return;
+
+		// when scroll hits the top position of elem border, class will be applied
 		let elemCoordinates = elem.getBoundingClientRect().top;
 
 		let windowHeight = document.documentElement.clientHeight;
-		console.log(elemCoordinates, ' ', windowHeight, ' is true?', elemCoordinates < windowHeight);
-		return elemCoordinates < windowHeight;
+
+		if (elemCoordinates < windowHeight) {
+			if (!elem.classList.contains(cssClass) && cssClass) {
+				elem.classList.add(cssClass);
+			}
+		}
 	}
 }
 

@@ -5,6 +5,8 @@ import Tractor_Banner from '../../resource/image/engine.jpg';
 import Dessert_Grass from '../../resource/image/Desert_Grass.jpg';
 import Dessert_Catus from '../../resource/image/Desert_Cactus.jpg';
 import ElementUtility from '../utility/element';
+import CarInterior from '../../resource/image/interior.jpeg';
+import SpeedImage from '../../resource/image/speedline.jpeg';
 
 class Introduction extends Component {
 	constructor(props) {
@@ -73,14 +75,27 @@ class Introduction extends Component {
 			isDoneIntro: true
 		});
 
-		this.setListeners();
+		this.setWindowListeners();
 	};
 
-	setListeners = () => {
-		let p = document.getElementById('test');
+	// set the animations here
+	setWindowListeners = () => {
+		let metricChildren = document.getElementById('metric').querySelectorAll('p');
+
+		let engineChildren = document.getElementById('content').querySelectorAll('.eg');
+		let relativePopIn = document.getElementById('content').querySelectorAll('.rp');
 
 		window.addEventListener('scroll', () => {
-			ElementUtility.isScrolledIntoView(p);
+			for (let i = 0; i < engineChildren.length; i++) {
+				ElementUtility.isScrolledIntoView(engineChildren[i], {
+					cssClass: 'popIn'
+				});
+			}
+			for (let i = 0; i < relativePopIn.length; i++) {
+				ElementUtility.isScrolledIntoView(relativePopIn[i], {
+					cssClass: 'relativePopIn'
+				});
+			}
 		});
 	};
 
@@ -119,15 +134,64 @@ class Introduction extends Component {
 				</div>
 
 				<div id="metric">
-					<img src={Dessert_Catus} />
+					<ul>
+						<li>
+							The Most <span className="highlightRed">Powerful</span> Car Ever Made
+						</li>
+						<li>
+							Voted As <span className="highlightRed">#1</span> In Comfort
+						</li>
+						<li>
+							Combining The <span className="highlightRed">Best</span> that Technology Has to Offer
+						</li>
+					</ul>
 				</div>
 
 				<div id="engine">
-					<p> Hello </p>
-					<p> Hello </p>
-					<p> Hello </p>
-					<p id="test"> Hello </p>
-					<p> Hello </p>
+					<img src={CarInterior} />
+					<div className="topLeft eg">
+						<p> Innovative Interior </p>
+						<p> Built For Comfort </p>
+					</div>
+				</div>
+
+				<div id="speed">
+					<img src={SpeedImage} />
+					<div className="topLeft eg">
+						<p> Go Far </p>
+						<p> With 600 HP</p>
+					</div>
+				</div>
+
+				<div id="information">
+					<h3 className="rp">
+						Start Your <span className="highlightRed">Journey</span> Today
+					</h3>
+					<ul>
+						<li className="rp">
+							<p>Find A Dealership</p>
+						</li>
+						<li className="rp">
+							<p>Check Pricing</p>
+						</li>
+						<li className="rp">
+							<p>Contact Us</p>
+						</li>
+					</ul>
+				</div>
+
+				<div id="footer">
+					<div>
+						<p>
+							Created By: <span className="highlightRed">Raymond Yu</span>
+						</p>
+						<p>
+							Contact Me At <span className="highlightRed">raymond.yu171@gmail.com</span>
+						</p>
+						<p>
+							Or <span className="highlightRed">647-863-4130</span>
+						</p>
+					</div>
 				</div>
 			</div>
 		);
